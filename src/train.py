@@ -91,4 +91,5 @@ def train(config):
 
 
 if __name__ == '__main__':
+    MNIST('/data', download=True)
     tune.run(train, config=config, resources_per_trial={'gpu': 0.2, 'cpu': 0.5})
