@@ -89,6 +89,13 @@ def train(config):
 
         writer.add_images('Generated Images', outputs, e)
 
+        torch.save({
+            'netG': netG.state_dict(),
+            'netD': netD.state_dict(),
+            'optimizerG': optimizerG.state_dict(),
+            'optimizerD': optimizerD.state_dict(),
+        }, f'/models/{name}-{e}.pth')
+
 
 if __name__ == '__main__':
     MNIST('/data', download=True)
